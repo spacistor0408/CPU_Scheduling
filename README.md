@@ -8,7 +8,7 @@
 
 ## 2. 流程與說明
 
-#### 2.1 流程
+### 2.1 流程
 
 - 使用者輸入欲載入之檔名（檔案需放在input資料夾中）
 - 方法 1：將資料進行FCFS CPU Scheduling
@@ -19,7 +19,7 @@
 - 方法 6：將資料進行方法1-5的所有 CPU Scheduling
 - 將結果的waiting time、turnaround time與各排程甘特圖寫入新的檔案
 
-#### 2.2
+### 2.2 排程方法
 
 <details>
   <summary>先到先服務（First Come First Served, FCFS）</summary>
@@ -28,29 +28,46 @@
 
 </details>
 
- 知更鳥式循環（Round Robin, RR）
-作業系統會規定CPU Time Slice（Time Quantum），Process享有固定的時間取得CPU控制權，如未能在時間內完成則會被迫放棄CPU，回到Ready的狀態。
+<details>
+  <summary>知更鳥式循環（Round Robin, RR）</summary>
 
-最短剩餘時間優先（Shortest Remaining Time First, SRTF）
-Process剩餘的工作時間越小，越優先取得CPU控制權。
+  作業系統會規定CPU Time Slice（Time Quantum），Process享有固定的時間取得CPU控制權，如未能在時間內完成則會被迫放棄CPU，回到Ready的狀態。
 
-優先等級知更鳥循環（Priority Round Robin, PPRR）
-由優先等級（Priority）較高的Process優先取得CPU控制權，如優先等級一樣則進行知更鳥循環，直到工作結束或更高等級的Process出現。
+</details>
+ 
+<details>
+  <summary>最短剩餘時間優先（Shortest Remaining Time First, SRTF）</summary>
 
-最高反應時間比率優先（Highest Response Ratio Next, HRRN）
-計算Process的反應時間比率（Response Ratio），由最高的優先取得CPU控制權。
+  Process剩餘的工作時間越小，越優先取得CPU控制權。
 
-#### 3. 使用的資料結構
+</details>
+
+
+<details>
+  <summary>優先等級知更鳥循環（Priority Round Robin, PPRR）</summary>
+
+  由優先等級（Priority）較高的Process優先取得CPU控制權，如優先等級一樣則進行知更鳥循環，直到工作結束或更高等級的Process出現。
+
+</details>
+
+
+<details>
+  <summary>最高反應時間比率優先（Highest Response Ratio Next, HRRN）</summary>
+
+  計算Process的反應時間比率（Response Ratio），由最高的優先取得CPU控制權。
+
+</details>
+
+### 3. 使用的資料結構
 
 - list
 
-#### 4. 完成的功能
+### 4. 完成的功能
 
 - 全數完成
 
-#### 5. 不同排程法的比較
+### 5. 不同排程法的比較
 
----
 
 **平均等待時間 Avg Waiting Time**
 |      | Input1 | Input2 | Input3 |
@@ -82,7 +99,6 @@ PPRR與RR則是差在是否有優先順序，兩者都是有Time Slice的機制�
 
 至於平均工作往返時間基本上就是等待時間再加上工作時間，可以看到SRTF在測資一的單個Process最長往返時間來到了驚人的57（ID=10, turnaround time=57），然而這邊有個有趣的現象就是在PPRR中也有個原本為最長等待時間的Process（ID=7, waiting time=55），但在Turnaround Time時卻輸給了SRTF演算法中的Process成為第二長（SRTF: ID=10, turnaround time=57 PPRR: ID=7, turnaround time=56），這也正說明在PPRR排程演算法中Priority的重要性！
 
----
 
-#### 6. 結果與討論
+### 6. 結果與討論
 總觀所述，可以發現各排程演算法都有其特色在，依據不同情況而有不同優劣；這讓我聯想到之前讀計算機網路時，也常會出現根據不同情況而有不同對應機制的通訊協定等等，其中可能還會遇到許多像排程法中Starvation的致命危機；然而因應這些不同的情況而下去不斷改良演算法可以說是人類在資訊領域中的一大使命，因為永遠都沒有最好的演算法，只有最適合現代情況的最佳演算法！
