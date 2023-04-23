@@ -68,7 +68,6 @@
 
 ### 5. 不同排程法的比較
 
-
 **平均等待時間 Avg Waiting Time**
 |      | Input1 | Input2 | Input3 |
 | ---- | ------ | ------ | ------ |
@@ -86,7 +85,6 @@
 而作為這兩者極端情況間，HRRN則扮演了一個很權衡的角色，除了有Response Ratio的機制可以避免Starvation的狀況之外，也不會總是讓較長CPU Burst的Process堵住整個CPU的占用，導致後面較短CPU Burst的Process塞住。
 
 PPRR與RR則是差在是否有優先順序，兩者都是有Time Slice的機制，確保大家共享CPU的固定時間片段，可以說是最公平的演算法。不過要注意的地方則是PPRR可能也會有Starvation以及Content Switch造成的延遲，如果時間片段過短，容易因過於頻繁切換導致整體速度變慢，而設的太長又可能與FCFS太過相近。
-
 
 **平均工作往返時間 Avg Turnaround Time**
 |      | Input1 | Input2 | Input3 |
